@@ -12,6 +12,19 @@ fun todoTask2_2() = TODO(
     references = { (collection: Collection<Int>) -> task1(collection); collection.joinToString() })
 
 fun task2_2(collection: Collection<Int>): String {
-    todoTask2_2()
-    return collection.joinToString()
+    return collection.joinToString(", ", "{", "}")
+}
+public fun Copiedtask1(collection: Collection<Int>): String {
+    val sb = StringBuilder()
+    sb.append("{")
+    val iterator = collection.iterator()
+    while (iterator.hasNext()) {
+        val element = iterator.next()
+        sb.append(element)
+        if (iterator.hasNext()) {
+            sb.append(", ")
+        }
+    }
+    sb.append("}")
+    return sb.toString()
 }

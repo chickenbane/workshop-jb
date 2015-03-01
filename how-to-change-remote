@@ -1,0 +1,17 @@
+I intially cloned from:
+
+https://github.com/JetBrains/workshop-jb
+
+Then I forked from github.
+
+so:
+
+http://stackoverflow.com/questions/11619593/how-to-change-the-fork-that-a-repository-is-linked-to
+
+The easiest way would be using command-line git remote, from within your local clone of FORK:
+
+git remote rm origin
+git remote add origin https://github.com/user/FORK.git
+Or, in one command, as illustrated in this GitHub article:
+
+git remote set-url origin https://github.com/user/FORK.git

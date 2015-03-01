@@ -3,7 +3,11 @@ package iii_properties
 import util.TODO
 
 class LazyProperty(val initializer: () -> Int) {
-    val lazy: Int = todoTask19()
+    private var inited: Boolean = false
+    private var lazyVal: Int = 0
+    val lazy: Int
+    get() =
+        if (inited) $lazyVal else { $lazyVal = initializer(); $inited = true; $lazyVal }
 }
 
 fun todoTask19() = TODO(
