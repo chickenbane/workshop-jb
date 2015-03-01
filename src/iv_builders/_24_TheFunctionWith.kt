@@ -17,6 +17,7 @@ fun todoTask24() = TODO(
 
 fun task24(): Boolean = todoTask24()
 
+
 fun buildString(): String {
     val stringBuilder = StringBuilder()
     with (stringBuilder) {
