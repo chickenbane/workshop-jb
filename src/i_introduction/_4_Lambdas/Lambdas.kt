@@ -1,6 +1,7 @@
 package i_introduction._4_Lambdas
 
-import util.*
+import util.TODO
+import util.doc3
 
 fun example() {
 
@@ -20,7 +21,10 @@ fun todoTask3(collection: Collection<Int>): Nothing = TODO(
     documentation = doc3(),
     references = { JavaCode3().task3(collection) })
 
-fun task3(collection: Collection<Int>): Boolean = todoTask3(collection)
+fun task3(collection: Collection<Int>): Boolean {
+    //return collection.find { it % 42 == 0 } != null
+    return collection.any { it % 42 == 0 }
+}
 
 
 
