@@ -1,8 +1,7 @@
 package vi_generics
 
-import java.util.ArrayList
-import java.util.HashSet
 import util.TODO
+import java.util.*
 
 fun task41(): Nothing = TODO(
     """
@@ -21,11 +20,23 @@ fun task41(): Nothing = TODO(
 )
 
 fun List<String>.partitionWordsAndLines(): Pair<List<String>, List<String>> {
-    task41()
-//    return partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
+    return partitionTo(ArrayList<String>(), ArrayList()) { s -> !s.contains(" ") }
 }
 
+fun <T, C : MutableCollection<T>> Iterable<T>.partitionTo(first: C, second: C, pred: (T)->Boolean): Pair<C, C> {
+    for (e in this) {
+        if (pred(e)) first.add(e)
+        else second.add(e)
+    }
+    return Pair(first, second)
+}
+
+//public fun <T, C : MutableCollection<in T>> Iterable<T>.toCollection(destination: C): C {
+
+//fun <T, C : Collection<T>> Iterable<T>.partitionTo(first: Collection<T>, second: Collection<T>, pred: (T) -> Boolean): Pair<C, C> {
+//    return Pair(first, second)
+//}
+
 fun Set<Char>.partitionLettersAndOtherSymbols(): Pair<Set<Char>, Set<Char>> {
-    task41()
-//    return partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
+    return partitionTo(HashSet<Char>(), HashSet()) { c -> c in 'a'..'z' || c in 'A'..'Z'}
 }
